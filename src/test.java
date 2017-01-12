@@ -8,5 +8,8 @@ public class test {
 		rolls.add(1);
 		Collections.sort(rolls);
 		System.out.print(rolls);*/
-	}	
+		Date hi = new Date(12, 31, 2017);
+		hi.addWeeks(553);
+		System.out.print(hi);
+	}
 }

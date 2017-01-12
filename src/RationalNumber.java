@@ -1,4 +1,4 @@
-
+import java.lang.Math;
 public class RationalNumber {
 	private int num;
 	private int den;
@@ -7,16 +7,18 @@ public class RationalNumber {
 	public RationalNumber(int num, int den) { //constructs rational number to represent ratio num/den
 		if (den == 0) {
 			throw new IllegalArgumentException("Don't put a 0 in the denominator!");
-		} else if () {
-			int x = 
-			while ()
 		} else {
-			this.num = num;
+			if (den < 0) {
+				den *= -1;
+				num *= -1;
+			}
+			this.num = num / gcd(num, den);
+			den /= gcd(num, den);
 			this.den = den;
 			if (den == 1) {
-				fraction = num + "";
+				fraction = this.num + "";
 			} else {
-				fraction = num + "/" + den;
+				fraction = this.num + "/" + this.den;
 			}
 		}
 	}
@@ -33,5 +35,16 @@ public class RationalNumber {
 	public String toString() {
 		return fraction;
 	}
-
+	private int gcd(int num, int den) {
+		while (den != 0) {
+			num = num%den;
+			int temp = den;
+			den = num;
+			num = temp;
+		}
+		return Math.abs(num);
+	}
+	/*public String add(int num, int den) {
+		
+	}*/
 }
